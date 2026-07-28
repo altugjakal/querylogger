@@ -3,6 +3,7 @@ let prevPressTime = null;
 let prevReleaseTime = null;
 
 const searchInput = document.getElementById('search-input');
+const taskIdInput = document.getElementById('task-id-input');
 
 searchInput.addEventListener('keydown', (event) => {
   if (event.repeat) return;
@@ -50,8 +51,9 @@ searchInput.addEventListener('keyup', (event) => {
 
 function search() {
   let complete_query = document.getElementById('search-input').value.trim();
-  let json_string = {'query': complete_query, 'keystrokes': rawKeystrokeBuffer};
+  let json_string = {'task_id': taskIdInput, 'query': complete_query, 'keystrokes': rawKeystrokeBuffer};
   storeApi(json_string).then(r => console.log(r));
+  window.location.href = "https://www.google.com/search?q=" + encodeURIComponent(complete_query);
 }
 
 async function storeApi(input){
