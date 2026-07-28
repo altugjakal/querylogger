@@ -49,10 +49,10 @@ searchInput.addEventListener('keyup', (event) => {
   prevReleaseTime = now;
 });
 
-function search() {
+async function search() {
   let complete_query = document.getElementById('search-input').value.trim();
-  let json_string = {'task_id': taskIdInput, 'query': complete_query, 'keystrokes': rawKeystrokeBuffer};
-  storeApi(json_string).then(r => console.log(r));
+  let json_string = {'task_id': taskIdInput.value, 'query': complete_query, 'keystrokes': rawKeystrokeBuffer};
+  await storeApi(json_string).then(r => console.log(r));
   window.location.href = "https://www.google.com/search?q=" + encodeURIComponent(complete_query);
 }
 
