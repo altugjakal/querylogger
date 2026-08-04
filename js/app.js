@@ -1,9 +1,8 @@
-const rawKeystrokeBuffer = [];
+let rawKeystrokeBuffer = [];
 let prevPressTime = null;
 let prevReleaseTime = null;
 
 const searchInput = document.getElementById('search-input');
-const taskIdInput = document.getElementById('task-id-input');
 const currentTaskField = document.getElementById('currentTask');
 
 let current_task = 0
@@ -119,6 +118,7 @@ async function search() {
   };
   await storeApi(json_string).then(r => console.log(r));
   searchInput.value = '';
+  rawKeystrokeBuffer = [];
   switchTask()
 
 }
