@@ -10,7 +10,7 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
-
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 html {
   color: #222;
   font-size: 1em;
@@ -93,12 +93,13 @@ textarea {
   justify-content: center;
   align-items: center;
 }
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 .search-icon {
   color: #ffc636;
   font-family: "Pacifico", cursive;
   font-weight: 400;
   width: auto;
+  font-size: 3rem;
 }
 
 .search-box {
