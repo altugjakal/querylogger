@@ -19,8 +19,34 @@ let taskList = [
     {'instruction': 'Buy a leather jacket online', 'intent': 2},
     {'instruction': 'Order a pepperoni pizza from Dominos', 'intent': 2},
     {'instruction': 'Purchase tickets for the upcoming concert', 'intent': 2},
-    {'instruction': 'Subscribe to Netflix premium plan', 'intent': 2}
+    {'instruction': 'Subscribe to Netflix premium plan', 'intent': 2},
+    {'instruction': 'Find the google translate tool page', 'intent': 0},
+    {'instruction': 'Locate the YouTube Kids sub-site', 'intent': 0},
+    {'instruction': 'Navigate to the Dropbox account login', 'intent': 0},
+    {'instruction': 'Go to the google blog', 'intent': 0},
+    {'instruction': 'Find out what "quantum computing" means.', 'intent': 1},
+    {'instruction': 'Look up the height of Mount Kilimanjaro.', 'intent': 1},
+    {'instruction': 'Look up the height of mount everest', 'intent': 1},
+    {'instruction': 'Find out how search engines work so fast', 'intent': 1},
+    {'instruction': 'Find an online retailer with Levi\'s 501 jeans in stock.', 'intent': 2},
+    {'instruction': 'Find the sign-up page for a Spotify Premium subscription.', 'intent': 2},
+    {'instruction': 'Find a website offering cheap flight deals for students.', 'intent': 2},
+    {'instruction': 'Find the official download page for the Zoom desktop app.', 'intent': 2}
+
   ];
+
+function getRandomSubarray(arr, size) {
+  var shuffled = arr.slice(0), i = arr.length, temp, index;
+  while (i--) {
+    index = Math.floor((i + 1) * Math.random());
+    temp = shuffled[index];
+    shuffled[index] = shuffled[i];
+    shuffled[i] = temp;
+  }
+  return shuffled.slice(0, size);
+}
+
+taskList = getRandomSubarray(taskList, 15);
 
 if (currentTaskField && taskList[current_task]) {
   currentTaskField.innerText = taskList[current_task].instruction;
