@@ -109,7 +109,7 @@ textarea {
   gap: 1rem;
   box-shadow: 0px 3px 10px 0px rgba(31, 31, 31, 0.08);
   width: 45vw;
-  height: 50px;
+  min-height: 80px;
   border-radius: 26px;
   box-sizing: border-box;
   border: 1px solid #dadce0;

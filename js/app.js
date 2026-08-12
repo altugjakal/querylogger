@@ -2,6 +2,7 @@ let rawKeystrokeBuffer = [];
 let prevPressTime = null;
 let prevReleaseTime = null;
 
+const searchBox = document.getElementById('search-box');
 const searchInput = document.getElementById('search-input');
 const currentTaskField = document.getElementById('currentTask');
 
@@ -110,8 +111,13 @@ searchInput.addEventListener('click', (event) => {
 
 
 async function search() {
+
+  let width = searchBox.offsetWidth;
+  let height = searchBox.offsetHeight;
   let complete_query = document.getElementById('search-input').value.trim();
   let json_string = {
+    'width': width,
+    'height': height,
     'intent': taskList[current_task].intent,
     'query': complete_query,
     'keystrokes': rawKeystrokeBuffer
