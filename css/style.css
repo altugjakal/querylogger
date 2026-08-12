@@ -112,7 +112,6 @@ body:fullscreen {
 
 .result-card {
   display: flex;
-  height: 15vh;
 }
 
 .result-card a {
