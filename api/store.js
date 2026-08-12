@@ -12,7 +12,7 @@ export default async function handler(req, res) {
 
   try {
 
-    const response = await fetch('https://api.jsonbin.io/v3/b', {
+    let response = await fetch('https://api.jsonbin.io/v3/b', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ export default async function handler(req, res) {
       body: typeof req.body === 'string' ? req.body : JSON.stringify(req.body),
     });
 
-    const data = await response.json();
+    let data = await response.json();
     const tvly = tavily({ apiKey: "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" });
 
     if (!response.ok) {
@@ -31,12 +31,12 @@ export default async function handler(req, res) {
     }
 
     try {
-      const response = await tvly.search("What are the core updates in React 19?", {
+      response = await tvly.search("What are the core updates in React 19?", {
         searchDepth: "basic",
         maxResults: 3,
       });
 
-      const data = await response.results;
+      data = await response.results;
 
 
     } catch (error) {
