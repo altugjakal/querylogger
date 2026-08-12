@@ -347,7 +347,7 @@ async function search() {
   searchInput.value = '';
   rawKeystrokeBuffer = [];
 
-  resultsField.innerHTML = data.map(item => `
+  resultsField.innerHTML = data?.map(item => `
     <div class="result-card">
         <a href="${item.url}" target="_blank">${item.title}</a>
     </div>
