@@ -10,24 +10,41 @@ export default async function handler(req, res) {
   }
 
   try {
-   
+
     const response = await fetch('https://api.jsonbin.io/v3/b', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'X-Master-Key': masterKey,
-        'X-Bin-Private': 'true', 
+        'X-Bin-Private': 'true',
       },
       body: typeof req.body === 'string' ? req.body : JSON.stringify(req.body),
     });
 
     const data = await response.json();
+    const tvly = tavily({ apiKey: "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" });
 
     if (!response.ok) {
+
       return res.status(response.status).json({ error: data });
     }
 
-   
+    try {
+      const response = await tvly.search("What are the core updates in React 19?", {
+        searchDepth: "basic",
+        maxResults: 3,
+      });
+
+      const data = await response.results;
+
+
+    } catch (error) {
+      return res.status(500).json({ error: error.message });
+    }
+
+    return res.status(200).json(data);
+
+
     return res.status(200).json(data);
   } catch (error) {
     return res.status(500).json({ error: error.message });

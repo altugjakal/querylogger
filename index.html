@@ -24,30 +24,33 @@
 
 <body>
 
-  <!-- Add your site or application content here -->
-  <div class="search-container">
-    <h1 class="search-icon">Boomerang</h1>
-    <div class="search-box" id="search-box">
+<!-- Add your site or application content here -->
 
-  <textarea id="search-input" class="search-input" placeholder="Search" ></textarea>
-
-    </div>
-    <center>
-
-      <input class="search-sub-box" value="Boomerang Search" onclick="search()"  aria-label="Google Search" name="btnK" role="button"  type="submit">
-      <button class="search-sub-box" onclick="switchTask()" id="currentTask">
-
-      </button>
-
-    </center>
-    <span><button id="consent" onclick="consent()">I accept</button> the terms in <a href="https://docs.google.com/document/d/1IQGUx9cKubUhGPADl_6PxA3O9RZs4Kp1najl_EVNPX4/edit?usp=sharing">here</a></span>
-    <span>Make sure you have read and signed the participation form. If not read it and press the button, or contact <a href="mailto:altugjakal@gmail.com">altugjakal@gmail.com</a> and provide a signed form.</span>
+<div class="search-container">
 
 
+  <h1 class="search-icon">Boomerang</h1>
+  <button class="search-sub-box" style="background: red; height: 50px !important; color: yellow" onclick="switchTask()" id="currentTask"></button>
+  <span id="exampleQuery"></span>
 
+  <div class="search-box" id="search-box">
+    <textarea id="search-input" class="search-input" placeholder="Search"></textarea>
   </div>
-  <script src="js/app.js"></script>
+
+  <center>
+    <input class="search-sub-box" value="Boomerang Search" onclick="search()" aria-label="Google Search" name="btnK" role="button" type="submit">
+  </center>
+
+  <span><button id="consent" onclick="consent()">I accept</button> the terms in <a href="https://docs.google.com/document/d/1IQGUx9cKubUhGPADl_6PxA3O9RZs4Kp1najl_EVNPX4/edit?usp=sharing">here</a></span>
+  <span>Make sure you have read and signed the participation form. If not read it and press the button, or contact <a href="mailto:altugjakal@gmail.com">altugjakal@gmail.com</a> and provide a signed form.</span>
+</div>
+
+<div id="resultsField"></div>
+
+
+<script src="js/app.js"></script>
 
 </body>
+
 
 </html>
