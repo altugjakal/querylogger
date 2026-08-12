@@ -340,10 +340,15 @@ async function search() {
     'query': complete_query,
     'keystrokes': rawKeystrokeBuffer
   };
-  await storeApi(json_string).then(r => console.log(r));
+  const data = await storeApi(json_string).then(r => console.log(r));
   searchInput.value = '';
   rawKeystrokeBuffer = [];
   switchTask()
+  resultsField.innerHTML = data.map(item => `
+    <div class="result-card">
+        <a href="${item.url}" target="_blank">${item.title}</a>
+    </div>
+`).join('');
 
 }
 
