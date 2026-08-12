@@ -31,12 +31,12 @@ export default async function handler(req, res) {
     }
 
     try {
-      response = await tvly.search("What are the core updates in React 19?", {
+      response = await tvly.search(typeof req.body === 'string' ? JSON.parse(req.body).query : req.body.query, {
         searchDepth: "basic",
         maxResults: 3,
       });
 
-      data = await response.results;
+      data = response.results;
 
 
     } catch (error) {

@@ -110,6 +110,14 @@ body:fullscreen {
   overflow: auto;
 }
 
+.result-card {
+  display: flex;
+  height: 15vh;
+}
+
+.result-card a {
+  color: #4faf21;
+}
 
 body:-webkit-full-screen {
   width: 100vw;
