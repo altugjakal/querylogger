@@ -226,9 +226,16 @@ let selectedTasksPool = [];
 let taskList = [];
 let current_task = 0;
 
+// Initialize language settings from localStorage
+const savedLanguage = localStorage.getItem('preferredLang') || 'tr';
+
+if (languageSelect) {
+  languageSelect.value = savedLanguage;
+}
+
 // Get language safely
 function getActiveLanguage() {
-  const lang = languageSelect ? languageSelect.value : 'tr';
+  const lang = languageSelect ? languageSelect.value : savedLanguage;
   return ['tr', 'en'].includes(lang) ? lang : 'tr';
 }
 
@@ -268,9 +275,10 @@ function updateTaskUI() {
 selectedTasksPool = getRandomSubarray(masterTaskPool, 15);
 loadTasks();
 
-// Listen for dynamic language changes
+// Listen for dynamic language changes and save choice
 if (languageSelect) {
   languageSelect.addEventListener('change', () => {
+    localStorage.setItem('preferredLang', languageSelect.value);
     loadTasks();
   });
 }
